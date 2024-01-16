@@ -31,6 +31,14 @@ Run `ng build` -> `dist/`
 6. Material specification: 
    > https://m3.material.io/
 
+7. Add Material   
+    > $ ng add @angular/material <br>
+    version: @angular/material@17.0.5
+
+8.   
+
+
+
 
 
 
