@@ -35,7 +35,9 @@ Run `ng build` -> `dist/`
     > $ ng add @angular/material <br>
     version: @angular/material@17.0.5
 
-8.   
+8. VSCode ``` import { Ctrl + Space } from '@angular/material/button'  ```
+
+9.
 
 
 
