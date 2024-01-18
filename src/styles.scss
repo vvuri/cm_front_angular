@@ -38,6 +38,9 @@ $cm_front_angular-theme: mat.define-light-theme((color: (primary: $cm_front_angu
 
 /* You can add global styles to this file, and also import other style files */
 
+$breakpoint-laptop: 840px;
+$braekpoint-mobile: 360px;
+
 html,
 body {
   height: 100%;
@@ -51,4 +54,43 @@ body {
   color: var(--md-sys-color-on-background);
 
   @include typography.body-medium;
+}
+
+.container {
+  background: lightgrey;
+
+  height: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas: "nav header" "nav main" "nav footer";
+}
+
+.navigation {
+  --_nav-orientation: var(--nav-orientation, column);
+  --_item-gap: var(--item-gap, 10px);
+  --_line-heigh: var(--line-height, 40px);
+
+  background: var(--md-sys-color-surface);
+  padding-top: 10px;
+  padding-inline: 5px 5px;
+  padding-bottom: 50px;
+  grid-area: nav;
+  display: flex;
+  flex-direction: var(--_nav-orientation);
+  gap: 20px;
+
+  @media(max-width: $braekpoint-mobile) {
+    --nav-orientation: row;
+    --item-gap: 1px;
+    --line-height: 32px;
+    align-items: center;
+  }
+
+  @media(max-width: $breakpoint-laptop) {
+    --item-gap: 1px;
+    --line-height: 32px;
+  }
+
 }

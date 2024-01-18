@@ -1,9 +1,25 @@
-<mat-nav-list>
-   @for (link of list; track link) {
-   <a mat-list-item [activated]="link === activeLink" (click)="activeLink = link">{{ link }}</a>
-   }
-</mat-nav-list>
+<div class="container">
 
-<button mat-raised-button color="primary">Add user</button>
+   <nav class="navigation">
+      <mat-nav-list>
+         @for (link of list; track link) {
+         <a mat-list-item [activated]="link === activeLink" (click)="activeLink = link">{{ link }}</a>
+         }
+      </mat-nav-list>
+   </nav>
+
+   <header class="header"></header>
+
+   <main class="main">
+      Test page Homework
+   </main>
+
+   <footer class="footer">
+      <button mat-raised-button color="primary">Add user</button>
+   </footer>
+
+</div>
+
+
 
 <router-outlet></router-outlet>
