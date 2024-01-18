@@ -4,6 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 
+interface INavigatinItem {
+  id: string,
+  label: string,
+  icon: string
+}
+
 @Component({
   selector: 'cm-root',
   standalone: true,
@@ -20,6 +26,32 @@ import { MatListModule } from '@angular/material/list'
 export class AppComponent {
   title = 'cm_front_angular';
 
-  public list: string[] = ['home', 'info', 'add', 'el1', 'el2', 'el3'];
+  public navList: INavigatinItem[] = [
+    {
+      id: 'home',
+      label: 'Home',
+      icon: 'home'
+    },
+    {
+      id: 'listbooks',
+      label: 'Books list',
+      icon: 'demography'
+    },
+    {
+      id: 'add',
+      label: 'Add Book',
+      icon: 'library_add'
+    },
+    {
+      id: 'settings',
+      label: 'Settings',
+      icon: 'settings'
+    },
+    {
+      id: 'logout',
+      label: 'Sign Out',
+      icon: 'logout'
+    },
+  ];
   public activeLink: string = 'home';
 }

@@ -2,8 +2,11 @@
 
    <nav class="navigation">
       <mat-nav-list>
-         @for (link of list; track link) {
-         <a mat-list-item [activated]="link === activeLink" (click)="activeLink = link">{{ link }}</a>
+         @for (link of navList; track link) {
+         <a mat-list-item [activated]="link.id === activeLink" (click)="activeLink = link.id">
+            <span class="navigation__item__icon">{{ link.icon }}</span>
+            <span class="navigation__item__text">{{ link.label }}</span>
+         </a>
          }
       </mat-nav-list>
    </nav>

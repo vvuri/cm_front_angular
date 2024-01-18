@@ -43,6 +43,8 @@ Run `ng build` -> `dist/`
 
 10. Use: https://github.com/vvuri/cm_front_css/tree/main
 
+11. Font Symbol: https://fonts.google.com/icons
+
 
 
 
