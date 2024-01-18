@@ -8,6 +8,8 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+@use "scss/mixins/typography";
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -44,4 +46,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+
+  @include typography.body-medium;
 }

@@ -37,8 +37,11 @@ Run `ng build` -> `dist/`
 
 8. VSCode ``` import { Ctrl + Space } from '@angular/material/button'  ```
 
-9.
+9. Customize element
+    - @use '../mixins/typography';
+    - @include typography.display-small;
 
+10. 
 
 
 
