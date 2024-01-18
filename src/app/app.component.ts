@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
-// import { MatListItem, MatNavList} from '@angular/material/list'
+import { MatListModule } from '@angular/material/list'
 
 @Component({
   selector: 'cm-root',
@@ -11,12 +11,15 @@ import { MatButtonModule } from '@angular/material/button'
     CommonModule,
     RouterOutlet,
     MatButtonModule,
-    // MatNavList,
-    // MatListItem
+    MatListModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   title = 'cm_front_angular';
+
+  public list: string[] = ['home', 'info', 'add', 'el1', 'el2', 'el3'];
+  public activeLink: string = 'home';
 }

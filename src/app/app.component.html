@@ -1,16 +1,9 @@
-<button mat-raised-button color="primary">My button</button>
+<mat-nav-list>
+   @for (link of list; track link) {
+   <a mat-list-item [activated]="link === activeLink" (click)="activeLink = link">{{ link }}</a>
+   }
+</mat-nav-list>
 
-<!-- <mat-nav-list>
-    @for (link of list; track link) {
-      <a mat-list-item href="..." [activated]="link.isActive">{{ link }}</a>
-    }
-
-    <mat-list-item>
-        <button mat-icon-button matListItemMeta> 111
-           <mat-icon>info</mat-icon>
-        </button>
-     </mat-list-item>
-
-</mat-nav-list> -->
+<button mat-raised-button color="primary">Add user</button>
 
 <router-outlet></router-outlet>
