@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
+import { BookService } from './services/book.service';
 
 interface INavigatinItem {
   id: string,
@@ -25,6 +26,10 @@ interface INavigatinItem {
 
 export class AppComponent {
   title = 'cm_front_angular';
+
+  constructor(
+    public bookService: BookService
+  ) { }
 
   public navList: INavigatinItem[] = [
     {

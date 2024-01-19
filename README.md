@@ -45,11 +45,16 @@ Run `ng build` -> `dist/`
 
 11. Font Symbol: https://fonts.google.com/icons
 
+12. Create interface: 
+    > $ ng g interface interfaces/book --prefix I <br>
+    CREATE src/app/interfaces/book.ts 
 
+13. Create service:
+    > $ ng g service services/book <br>
+    CREATE src/app/services/book.service.spec.ts <br>
+    CREATE src/app/services/book.service.ts
 
-
-
-
+14. 
 
 
 
