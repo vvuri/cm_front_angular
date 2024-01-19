@@ -16,16 +16,16 @@
    <main class="main">
       Test page Homework
 
-      @for (book of bookService.getAll() | async; track book) {
+      @for (book of books; track book) {
       <div>
-         <span>{{ book.title }}</span>
+         <span>{{ book.title + ": " }}</span>
          <span>{{ book.author }}</span>
       </div>
       }
    </main>
 
    <footer class="footer">
-      <button mat-raised-button color="primary">Add user</button>
+      <button mat-raised-button color="primary" (click)="addBook()">Add Book</button>
    </footer>
 
 </div>

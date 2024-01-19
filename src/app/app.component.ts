@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookService } from './services/book.service';
+import { IBook } from './interfaces/book';
 
 interface INavigatinItem {
   id: string,
@@ -24,12 +25,24 @@ interface INavigatinItem {
   styleUrl: './app.component.scss'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'cm_front_angular';
 
+  public books: IBook[] = [];
+
   constructor(
-    public bookService: BookService
+    private bookService: BookService
   ) { }
+
+  public ngOnInit(): void {
+    this.bookService.getAll().subscribe(books => {
+      this.books = books;
+    });
+  }
+
+  public addBook(): void {
+    this.bookService.addBook().subscribe(() => { });
+  }
 
   public navList: INavigatinItem[] = [
     {

@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 export class BookService {
 
   private _books: IBook[] = [];
+  private _currentId: number = 3;
 
   constructor() {
     this._books = [
@@ -19,6 +20,17 @@ export class BookService {
 
   public getAll(): Observable<IBook[]> {
     return of(this._books)
+  }
+
+  public addBook(): Observable<any> {
+    this._currentId++;
+    const book: IBook = {
+      id: this._currentId,
+      title: "New Book",
+      author: "Nikkol S"
+    }
+    this._books.push(book);
+    return of();
   }
 
 }
