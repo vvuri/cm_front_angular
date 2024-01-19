@@ -35,13 +35,19 @@ export class AppComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.bookService.getAll().subscribe(books => {
-      this.books = books;
-    });
+    this.loadBooks();
   }
 
   public addBook(): void {
-    this.bookService.addBook().subscribe(() => { });
+    this.bookService.addBook().subscribe(() => {
+      this.loadBooks();
+    });
+  }
+
+  private loadBooks(): void {
+    this.bookService.getAll().subscribe(books => {
+      this.books = books;
+    });
   }
 
   public navList: INavigatinItem[] = [
