@@ -16,7 +16,7 @@
    <main class="main">
       Test page Homework
 
-      @for (book of bookService.getAll(); track book) {
+      @for (book of bookService.getAll() | async; track book) {
       <div>
          <span>{{ book.title }}</span>
          <span>{{ book.author }}</span>
