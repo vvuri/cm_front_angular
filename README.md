@@ -54,7 +54,22 @@ Run `ng build` -> `dist/`
     CREATE src/app/services/book.service.spec.ts <br>
     CREATE src/app/services/book.service.ts
 
-14. 
+14. $ ng g component books
+    CREATE src/app/books/books.component.html (19 bytes)
+    CREATE src/app/books/books.component.spec.ts (582 bytes)
+    CREATE src/app/books/books.component.ts (226 bytes)
+    CREATE src/app/books/books.component.scss (0 bytes)
+
+15. Pipe
+    > $ ng g pipe pipes/book
 
 
 
+
+## ToDo
+1. Dark тема
+2. Переделать list книг - в название и автор
+3. Доделать Navigation Drawer
+4. Hover для меню
+5. Resize для mobile
+6. 

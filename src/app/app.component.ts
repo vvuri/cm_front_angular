@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookService } from './services/book.service';
 import { IBook } from './interfaces/book';
+import { BooksComponent } from './books/books.component';
 
 interface INavigatinItem {
   id: string,
@@ -20,6 +21,7 @@ interface INavigatinItem {
     RouterOutlet,
     MatButtonModule,
     MatListModule,
+    BooksComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
