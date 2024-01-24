@@ -30,27 +30,27 @@ interface INavigatinItem {
 export class AppComponent implements OnInit {
   title = 'cm_front_angular';
 
-  public books: IBook[] = [];
+  // public books: IBook[] = [];
 
   constructor(
     private bookService: BookService
   ) { }
 
   public ngOnInit(): void {
-    this.loadBooks();
+    //   this.loadBooks();
   }
 
-  public addBook(): void {
-    this.bookService.addBook().subscribe(() => {
-      this.loadBooks();
-    });
-  }
+  // public addBook(): void {
+  //   this.bookService.addBook().subscribe(() => {
+  //     this.loadBooks();
+  //   });
+  // }
 
-  private loadBooks(): void {
-    this.bookService.getAll().subscribe(books => {
-      this.books = books;
-    });
-  }
+  // private loadBooks(): void {
+  //   this.bookService.getAll().subscribe(books => {
+  //     this.books = books;
+  //   });
+  // }
 
   public navList: INavigatinItem[] = [
     {

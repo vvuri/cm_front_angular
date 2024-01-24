@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IBook } from '../interfaces/book';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'cm-books',
@@ -9,4 +11,23 @@ import { Component } from '@angular/core';
 })
 export class BooksComponent {
 
+  public books: IBook[] = [];
+
+  constructor(
+    private bookService: BookService
+  ) { }
+
+  public ngOnInit(): void {
+    this.loadBooks();
+  }
+
+  private loadBooks(): void {
+    this.bookService.getAll().subscribe(books => {
+      this.books = books;
+    });
+  }
+
+
+
 }
+

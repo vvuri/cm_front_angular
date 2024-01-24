@@ -1,1 +1,8 @@
 <p>book works!</p>
+
+@for (book of books; track book) {
+<div>
+    <span>##{{ book.title }}</span>
+    <span>##{{ book.author }}</span>
+</div>
+}
