@@ -60,7 +60,13 @@ Run `ng build` -> `dist/`
     CREATE src/app/books/books.component.ts (226 bytes)
     CREATE src/app/books/books.component.scss (0 bytes)
 
-15. Pipe
+15. $ ng g component book-list
+    CREATE src/app/book-list/book-list.component.html (24 bytes)
+    CREATE src/app/book-list/book-list.component.spec.ts (611 bytes)
+    CREATE src/app/book-list/book-list.component.ts (245 bytes)
+    CREATE src/app/book-list/book-list.component.scss (0 bytes)
+
+16. Pipe
     > $ ng g pipe pipes/book
 
 16. Add server: https://github.com/vordig/lection-server    
@@ -94,4 +100,7 @@ Run `ng build` -> `dist/`
 3. Доделать Navigation Drawer
 4. Hover для меню
 5. Resize для mobile
-6. 
+6. Починить кнопку AddBook вызов
+7. Передать значение в компонент Book
+8. Стилизация
+
