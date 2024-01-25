@@ -63,7 +63,29 @@ Run `ng build` -> `dist/`
 15. Pipe
     > $ ng g pipe pipes/book
 
+16. Add server: https://github.com/vordig/lection-server    
 
+17. Swagger: http://127.0.0.1:5010/swagger/index.html
+
+18. Add user - only ones:
+    GET http://127.0.0.1:5010/api/auth/register
+    { "name": "user", "email": "user@test.qa", "password": "1234" }
+
+19. Login:
+    POST http://127.0.0.1:5010/api/auth/login
+    { "email": "user@test.qa", "password": "1234" }
+    --> { "accessToken": "eyJhb..." }
+    
+20. Add Book: 
+    GET http://127.0.0.1:5010/api/books
+    Bearer Token: "eyJhb..."
+    { "author": "Sting K", "name": "Little Sttory 2" }
+    --> { "id": "5d6a3640 ... }
+
+21. Get All Books:
+    GET http://127.0.0.1:5010/api/books
+    Bearer Token: "eyJhb..."
+    --> [ { "id": "5d6..", "userId": "df...", "author": "Sting K", "name": "Little Sttory 2"}, ... ]
 
 
 ## ToDo
