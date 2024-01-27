@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from '../interfaces/book';
 import { BookService } from '../services/book.service';
-import { BooksComponent } from '../books/books.component';
+import { BookComponent } from '../book/book.component';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [
     MatButtonModule,
-    BooksComponent
+    BookComponent
   ],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss'
