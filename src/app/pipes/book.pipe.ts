@@ -8,7 +8,7 @@ import { IBook } from '../interfaces/book';
 export class BookPipe implements PipeTransform {
 
   transform(value: IBook, ...args: unknown[]): string {
-    return value.author + ": " + value.title;
+    return value.author.toUpperCase();
   }
 
 }
