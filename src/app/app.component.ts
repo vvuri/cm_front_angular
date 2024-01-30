@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookListComponent } from './book-list/book-list.component';
+import { AuthService } from './auth/auth.service';
 
 interface INavigatinItem {
   id: string,
@@ -25,8 +26,20 @@ interface INavigatinItem {
   styleUrl: './app.component.scss'
 })
 
- export class AppComponent { 
+export class AppComponent {
   title = 'cm_front_angular';
+
+  constructor(
+    public authService: AuthService,
+  ) { }
+
+  public login() {
+    this.authService.login();
+  }
+
+  public logout() {
+    this.authService.logout();
+  }
 
   public navList: INavigatinItem[] = [
     {
@@ -55,5 +68,6 @@ interface INavigatinItem {
       icon: 'logout'
     },
   ];
+
   public activeLink: string = 'home';
 }

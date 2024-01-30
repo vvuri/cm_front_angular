@@ -95,6 +95,15 @@ Run `ng build` -> `dist/`
 
 22. Add Book dialog
     $ ng g component dialods/add-book
+    модификация добавления книг
+
+23. Auth:
+    $ ng g service auth/auth
+    Add Login and Logout button and method in service
+
+24. ng g guard auth/guards/auth     
+    - CanActivate
+    
 
 
 

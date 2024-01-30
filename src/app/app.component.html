@@ -1,7 +1,7 @@
 <div class="container">
 
    <nav class="navigation">
-      <mat-nav-list>
+      <mat-nav-list *ngIf="authService.isAuthorized">
          @for (link of navList; track link) {
          <a mat-list-item [activated]="link.id === activeLink" (click)="activeLink = link.id">
             <span class="navigation__item__icon">{{ link.icon }}</span>
@@ -11,14 +11,18 @@
       </mat-nav-list>
    </nav>
 
-   <header class="header"></header>
+   <header class="header">
+      <button mat-flat-button color="primary" (click)="login()">Login</button>
+      <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+      <div>Current user: {{ authService.isAuthorized }} </div>
+   </header>
 
    <main class="main">
       <cm-book-list></cm-book-list>
    </main>
 
    <footer class="footer">
-      Course Frontend,  vvuri,  Tula 2024
+      Course Frontend, vvuri, Tula 2024
    </footer>
 
 </div>
