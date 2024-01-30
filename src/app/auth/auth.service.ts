@@ -25,6 +25,11 @@ export class AuthService {
     this.router.navigate(['/books']);
   }
 
+  public register(newUser: IUser): void {
+    console.log('AddNewUser:', newUser);
+    this.router.navigate(['/login']);
+  }
+
   public logout(): void {
     this._isAuthorized = false;
     this._user = '';

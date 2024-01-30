@@ -108,6 +108,8 @@ Run `ng build` -> `dist/`
 25. Добавляем авторизацию
     $ ng g component auth/login
 
+26. Добавляем авторизацию
+    $ ng g component auth/register
 
 ## ToDo
 1. Dark тема
@@ -126,5 +128,8 @@ Run `ng build` -> `dist/`
 14. Menu press Login
 15. Menu press Logout
 16. Починить баг со вторым менюи логаутом
+17. Не работае отоброжение ошибки при пустом логине
+18. Нужна еще регистрация.
+
     
 
