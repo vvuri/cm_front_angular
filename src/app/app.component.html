@@ -22,13 +22,13 @@
       </nav>
    </ng-template>
 
-   <header class="header">
+   <header class="header" *ngIf="authService.isAuthorized">
       <button mat-flat-button color="primary" (click)="login()">Login</button>
       <button mat-flat-button color="primary" (click)="logout()">Logout</button>
-      <div>Current user: {{ authService.isAuthorized }} </div>
+      <div>Current user: {{ authService.userName }} </div>
    </header>
 
-   <main class="main" *ngIf="authService.isAuthorized">
+   <main class="main">
       <router-outlet></router-outlet>
       <!-- <cm-book-list></cm-book-list> -->
    </main>

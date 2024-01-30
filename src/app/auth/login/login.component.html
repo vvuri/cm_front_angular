@@ -4,15 +4,18 @@
         <mat-form-field>
             <mat-label>EMAIL / USERNAME</mat-label>
             <input matInput formControlName="user">
+            <mat-error *ngIf="email.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="email.hasError('email')">Email is invalid</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>PASSWORD</mat-label>
-            <input matInput formControlName="password">
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="password.hasError('required')">Email is required</mat-error>
         </mat-form-field>
     </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onLogin()">Sign In</button>
+  <button mat-flat-button [disabled]="loginForm.invalid" (click)="onLogin()">Sign In</button>
 </div>
 

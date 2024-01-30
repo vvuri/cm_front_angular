@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookListComponent } from './book-list/book-list.component';
 import { AuthService } from './auth/auth.service';
+import { IUser } from './interfaces/book';
 
 interface INavigatinItem {
   id: string,
@@ -37,7 +38,8 @@ export class AppComponent {
   ) { }
 
   public login() {
-    this.authService.login();
+    const fake: IUser = {user:'Fake', password:'123'}
+    this.authService.login(fake);
   }
 
   public logout() {
