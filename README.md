@@ -101,10 +101,12 @@ Run `ng build` -> `dist/`
     $ ng g service auth/auth
     Add Login and Logout button and method in service
 
-24. ng g guard auth/guards/auth     
+24. Добавляем защиту от показа страниц для неавторизованных пользователей
+    $ ng g guard auth/guards/auth     
     - CanActivate
-    
 
+25. Добавляем авторизацию
+    $ ng g component auth/login
 
 
 ## ToDo
@@ -116,4 +118,12 @@ Run `ng build` -> `dist/`
 6. Починить кнопку AddBook вызов
 7. Передать значение в компонент Book
 8. Стилизация
+9. Не работает роут на /books
+10. Добавить валидацию #11 1:03
+11. Edit book #11 1:09
+12. Request #13 0:53-1:05
+13. Add Env #13 1:09
+14. Menu press Login
+15. Menu press Logout
+
 

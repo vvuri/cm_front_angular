@@ -1,9 +1,17 @@
 <div class="container">
 
    <nav class="navigation">
+      <mat-nav-list *ngIf="!authService.isAuthorized">
+         <a mat-list-item routerLink="login" routerLinkActive="active">
+            <span class="navigation__item__icon">login</span>
+            <span class="navigation__item__text">Login</span>
+         </a>
+      </mat-nav-list>
+
       <mat-nav-list *ngIf="authService.isAuthorized">
          @for (link of navList; track link) {
-         <a mat-list-item [activated]="link.id === activeLink" (click)="activeLink = link.id">
+         <a mat-list-item [activated]="link.id === activeLink" (click)="activeLink = link.id"
+            routerLink="{{ link.route }}">
             <span class="navigation__item__icon">{{ link.icon }}</span>
             <span class="navigation__item__text">{{ link.label }}</span>
          </a>
@@ -17,7 +25,7 @@
       <div>Current user: {{ authService.isAuthorized }} </div>
    </header>
 
-   <main class="main">
+   <main class="main" *ngIf="authService.isAuthorized">
       <cm-book-list></cm-book-list>
    </main>
 
