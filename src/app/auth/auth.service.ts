@@ -23,7 +23,7 @@ export class AuthService {
 
   public logout(): void {
     this._isAuthorized = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
 }

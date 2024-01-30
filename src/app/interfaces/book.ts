@@ -8,3 +8,8 @@ export interface IAddBook {
     title: string,
     author: string,
 }
+
+export interface IUser {
+    user: string,
+    password: string,
+}
