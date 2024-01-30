@@ -7,8 +7,7 @@ import { LoginComponent } from './auth/login/login.component';
 export const routes: Routes = [
     {
         path: 'login',
-        component: LoginComponent,
-        canActivate: []
+        component: LoginComponent
     },
     {
         path: 'books',

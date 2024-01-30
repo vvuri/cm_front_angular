@@ -18,11 +18,12 @@ export class AuthService {
 
   public login(): void {
     this._isAuthorized = true;
+    this.router.navigate(['/books']);
   }
 
   public logout(): void {
     this._isAuthorized = false;
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
 }

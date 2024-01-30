@@ -125,5 +125,5 @@ Run `ng build` -> `dist/`
 13. Add Env #13 1:09
 14. Menu press Login
 15. Menu press Logout
-
+    
 
