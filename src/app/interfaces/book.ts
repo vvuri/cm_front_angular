@@ -4,3 +4,7 @@ export interface IBook {
     author: string,
 }
 
+export interface IAddBook {
+    title: string,
+    author: string,
+}

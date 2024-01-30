@@ -93,6 +93,10 @@ Run `ng build` -> `dist/`
     Bearer Token: "eyJhb..."
     --> [ { "id": "5d6..", "userId": "df...", "author": "Sting K", "name": "Little Sttory 2"}, ... ]
 
+22. Add Book dialog
+    $ ng g component dialods/add-book
+
+
 
 ## ToDo
 1. Dark тема
