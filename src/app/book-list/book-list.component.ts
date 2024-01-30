@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBook } from '../interfaces/book';
+import { IBook, IAddBook } from '../interfaces/book';
 import { BookService } from '../services/book.service';
 import { BookComponent } from '../book/book.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,27 +16,28 @@ import { AddBookComponent } from '../dialods/add-book/add-book.component';
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.scss'
 })
-export class BookListComponent implements OnInit{
+export class BookListComponent implements OnInit {
   public books: IBook[] = [];
 
   constructor(
     private bookService: BookService,
     private dialog: MatDialog
   ) { }
-  
+
   public ngOnInit(): void {
     this.loadBooks();
   }
 
-public addBook() {
+  public addBook() {
     const dialogRef = this.dialog.open(AddBookComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
         console.log('The dialog was closed', result);
+        this.bookService.addBook(result);
       }
     });
-}
+  }
 
   private loadBooks(): void {
     this.bookService.getAll().subscribe(books => {

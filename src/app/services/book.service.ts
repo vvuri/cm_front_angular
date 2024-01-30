@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IBook } from '../interfaces/book';
+import { IAddBook, IBook } from '../interfaces/book';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -22,14 +22,14 @@ export class BookService {
     return of(this._books)
   }
 
-  public addBook(): Observable<any> {
+  public addBook(book: IAddBook): Observable<any> {
     this._currentId++;
-    const book: IBook = {
+    const addbook: IBook = {
       id: this._currentId,
-      title: "New Book",
-      author: "Nikkol S"
+      title: book.title,
+      author: book.author
     }
-    this._books.push(book);
+    this._books.push(addbook);
     return of();
   }
 
