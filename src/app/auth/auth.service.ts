@@ -34,9 +34,10 @@ export class AuthService {
     this._isAuthorized = false;
     this._user = '';
     this.router.navigate(['/']);
+    location.reload();
   }
 
-  public get userName():string {
+  public get userName(): string {
     return this._user;
   }
 

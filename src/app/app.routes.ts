@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AddBookComponent } from './dialods/add-book/add-book.component';
 import { StatisticComponent } from './statistic/statistic.component';
+import { SettingsComponent } from './settings/settings.component';
 
 export const routes: Routes = [
     {

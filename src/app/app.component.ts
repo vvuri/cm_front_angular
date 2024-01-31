@@ -70,12 +70,12 @@ export class AppComponent {
       icon: 'settings',
       route: 'settings'
     },
-    {
-      id: 'logout',
-      label: 'Sign Out',
-      icon: 'logout',
-      route: '/'
-    },
+    // {
+    //   id: 'logout',
+    //   label: 'Sign Out',
+    //   icon: 'logout',
+    //   route: '/'
+    // },
   ];
 
   public activeLink: string = 'home';
@@ -90,4 +90,5 @@ export class AppComponent {
       }
     });
   }
+
 }

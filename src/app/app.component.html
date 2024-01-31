@@ -13,6 +13,11 @@
             <span class="navigation__item__text">{{ link.label }}</span>
          </a>
          }
+
+         <a mat-list-item (click)="logout()">
+            <span class="navigation__item__icon">logout</span>
+            <span class="navigation__item__text">Sign Out</span>
+         </a>
       </mat-nav-list>
    </nav>
 
@@ -32,8 +37,8 @@
    </ng-template>
 
    <header class="header" *ngIf="authService.isAuthorized">
-      <button mat-flat-button color="primary" (click)="login()">Login</button>
-      <button mat-flat-button color="primary" (click)="logout()">Logout</button>
+      <!-- <button mat-flat-button color="primary" (click)="login()">Login</button> -->
+      <!-- <button mat-flat-button color="primary" (click)="logout()">Logout</button> -->
       <div>Current user: {{ authService.userName }} </div>
    </header>
 
