@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cm-login',
@@ -23,9 +24,10 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
 
   constructor(
-    private authService: AuthService
-  ){}
-  
+    private authService: AuthService,
+    private router: Router,
+  ) { }
+
   public loginForm = new FormGroup({
     user: new FormControl<string>(''),
     password: new FormControl<string>(''),
@@ -33,11 +35,19 @@ export class LoginComponent {
 
   public onLogin(): void {
     const authUser: IUser = {
-      user: this.loginForm.get('user')?.value ?? '',
+      email: this.loginForm.get('user')?.value ?? '',
       password: this.loginForm.get('password')?.value ?? ''
     }
 
-    this.authService.login(authUser);
+    this.authService.login(authUser).subscribe({
+      next: () => {
+        this.router.navigate(['/books']);
+        // isAutorized ???
+      },
+      error: () => {
+        console.log('No auth');
+      }
+    });
   }
 
   public get email(): FormControl<string> {

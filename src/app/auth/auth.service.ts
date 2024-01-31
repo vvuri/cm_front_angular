@@ -22,20 +22,34 @@ export class AuthService {
     return this._isAuthorized;
   }
 
-  public login(authUser: IUser): void {
-    this._isAuthorized = true;
-    this._user = authUser.user;
+  // public set isAuthorized(): boolean {
+  //   this._isAuthorized = true;
+  // }
+
+  public login(authUser: IUser): Observable<any> {
+    let headers = new HttpHeaders({
+      ['accept']: 'application/json',
+      ['Content-Type']: 'application/json',
+    });
+
     console.log('Auth:', authUser);
-    this.router.navigate(['/books']);
+
+    return this.httpClient.post(environment.apiUrl + 'auth/login',
+      JSON.stringify(authUser),
+      { headers: headers });
+
+    // this._isAuthorized = true;
+    // this._user = authUser.email;
+
   }
 
   public register(newUser: IRegUser): Observable<any> {
     console.log('AddNewUser:', newUser);
 
-    let headers = new HttpHeaders({['Content-Type']: 'application/json'});
-    return this.httpClient.post(environment.apiUrl + 'auth/register', JSON.stringify(newUser), {headers: headers});
-
-    this.router.navigate(['/login']);
+    let headers = new HttpHeaders({ ['Content-Type']: 'application/json' });
+    return this.httpClient.post(environment.apiUrl + 'auth/register',
+      JSON.stringify(newUser),
+      { headers: headers });
   }
 
   public logout(): void {

@@ -42,10 +42,10 @@ export class AppComponent {
     private dialog: MatDialog
   ) { }
 
-  public login() {
-    const fake: IUser = { user: 'Fake', password: '123' }
-    this.authService.login(fake);
-  }
+  // public login() {
+  //   const fake: IUser = { user: 'Fake', password: '123' }
+  //   this.authService.login(fake);
+  // }
 
   public logout() {
     this.authService.logout();
