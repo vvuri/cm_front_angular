@@ -114,7 +114,7 @@ Run `ng build` -> `dist/`
 27. $ ng g component statistic    
 
 ## ToDo
-1. Dark тема
+1. Dark тема - Setting переключатель
 2. Переделать list книг - в название и автор
 3. Доделать Navigation Drawer
 4. Hover для меню
@@ -127,8 +127,6 @@ Run `ng build` -> `dist/`
 11. Edit book #11 1:09
 12. Request #13 0:53-1:05
 13. Add Env #13 1:09
-14. Menu press Login
-15. Menu press Logout
 16. Починить баг со вторым менюи логаутом
 17. Не работае отоброжение ошибки при пустом логине
 18. Нужна еще регистрация.
