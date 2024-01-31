@@ -13,3 +13,10 @@ export interface IUser {
     user: string,
     password: string,
 }
+
+
+export interface IRegUser {
+    name: string,
+    user: string,
+    password: string,
+}

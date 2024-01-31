@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IUser } from '../../interfaces/book';
+import { IRegUser } from '../../interfaces/book';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
@@ -27,17 +27,23 @@ export class RegisterComponent {
   ){}
 
   public registerForm = new FormGroup({
+    name: new FormControl<string>(''),
     user: new FormControl<string>(''),
     password: new FormControl<string>(''),
   });
 
   public onRegister(): void {
-    const newUser: IUser = {
+    const newUser: IRegUser = {
+      name: this.registerForm.get('name')?.value ?? '',
       user: this.registerForm.get('user')?.value ?? '',
       password: this.registerForm.get('password')?.value ?? ''
     }
 
     this.authService.register(newUser);
+  }
+
+  public get name(): FormControl<string> {
+    return this.registerForm.get('name') as FormControl<string>;
   }
 
   public get email(): FormControl<string> {

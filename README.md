@@ -81,6 +81,15 @@ Run `ng build` -> `dist/`
     POST http://127.0.0.1:5010/api/auth/login
     { "email": "user@test.qa", "password": "1234" }
     --> { "accessToken": "eyJhb..." }
+
+    Registrar:
+    POST http://127.0.0.1:5010/api/auth/register
+    {
+    "name": "string",
+    "email": "string",
+    "password": "string"
+    }
+    --> 200
     
 20. Add Book: 
     GET http://127.0.0.1:5010/api/books
@@ -113,6 +122,16 @@ Run `ng build` -> `dist/`
 
 27. $ ng g component statistic    
 
+28. Add connect to Server
+    let headers = new HttpHeaders({['Content-Type']: 'application/json'});
+    return this.httpClient.post(environment.apiUrl + 'auth/register', JSON.stringify(newUser), {headers: headers});
+    --> return Observable<any>
+
+29. Add Environment
+    $ ng g environments
+    --> apiUrl: 'https://localhost:5010/api/'
+
+
 ## ToDo
 1. Dark тема - Setting переключатель
 2. Переделать list книг - в название и автор
@@ -130,6 +149,6 @@ Run `ng build` -> `dist/`
 16. Починить баг со вторым менюи логаутом
 17. Не работае отоброжение ошибки при пустом логине
 18. Нужна еще регистрация.
-
+19. Порт у меня 5010
     
 
