@@ -22,11 +22,11 @@ import { Router } from '@angular/router';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  
+
   constructor(
     private authService: AuthService,
     private router: Router,
-  ){}
+  ) { }
 
   public registerForm = new FormGroup({
     name: new FormControl<string>(''),
@@ -37,11 +37,11 @@ export class RegisterComponent {
   public onRegister(): void {
     const newUser: IRegUser = {
       name: this.registerForm.get('name')?.value ?? '',
-      user: this.registerForm.get('user')?.value ?? '',
+      email: this.registerForm.get('user')?.value ?? '',
       password: this.registerForm.get('password')?.value ?? ''
     }
 
-    this.authService.register(newUser).subscribe( () => {
+    this.authService.register(newUser).subscribe(() => {
       this.router.navigate(['/login']);
     });
   }

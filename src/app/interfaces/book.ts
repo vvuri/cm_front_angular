@@ -17,6 +17,6 @@ export interface IUser {
 
 export interface IRegUser {
     name: string,
-    user: string,
+    email: string,
     password: string,
 }
