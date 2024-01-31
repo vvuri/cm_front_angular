@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cm-register',
@@ -23,7 +24,8 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent {
   
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ){}
 
   public registerForm = new FormGroup({
@@ -39,7 +41,9 @@ export class RegisterComponent {
       password: this.registerForm.get('password')?.value ?? ''
     }
 
-    this.authService.register(newUser);
+    this.authService.register(newUser).subscribe( () => {
+      this.router.navigate(['/login']);
+    });
   }
 
   public get name(): FormControl<string> {
