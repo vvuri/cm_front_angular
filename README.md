@@ -111,6 +111,8 @@ Run `ng build` -> `dist/`
 26. Добавляем авторизацию
     $ ng g component auth/register
 
+27. $ ng g component statistic    
+
 ## ToDo
 1. Dark тема
 2. Переделать list книг - в название и автор

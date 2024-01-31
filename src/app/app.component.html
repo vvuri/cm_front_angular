@@ -1,6 +1,11 @@
 <div class="container">
    <nav class="navigation" *ngIf="authService.isAuthorized; else loggedOut">
-      <mat-nav-list >
+      <mat-nav-list>
+         <a mat-list-item (click)="addBook()">
+            <span class="navigation__item__icon">library_add</span>
+            <span class="navigation__item__text">Add Book</span>
+         </a>
+
          @for (link of navList; track link) {
          <a mat-list-item [activated]="link.id === activeLink" (click)="activeLink = link.id"
             routerLink="{{ link.route }}">
@@ -13,7 +18,7 @@
 
    <ng-template #loggedOut>
       <nav class="navigation">
-         <mat-nav-list >
+         <mat-nav-list>
             <a mat-list-item routerLink="login" routerLinkActive="active">
                <span class="navigation__item__icon">login</span>
                <span class="navigation__item__text">Login</span>
@@ -41,4 +46,3 @@
       Course Frontend, vvuri, Tula 2024
    </footer>
 </div>
-   

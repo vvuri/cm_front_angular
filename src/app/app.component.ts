@@ -5,7 +5,10 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookListComponent } from './book-list/book-list.component';
 import { AuthService } from './auth/auth.service';
-import { IUser } from './interfaces/book';
+import { IAddBook, IUser } from './interfaces/book';
+import { AddBookComponent } from './dialods/add-book/add-book.component';
+import { MatDialog } from '@angular/material/dialog';
+import { BookService } from './services/book.service';
 
 interface INavigatinItem {
   id: string,
@@ -35,10 +38,12 @@ export class AppComponent {
 
   constructor(
     public authService: AuthService,
+    private bookService: BookService,
+    private dialog: MatDialog
   ) { }
 
   public login() {
-    const fake: IUser = {user:'Fake', password:'123'}
+    const fake: IUser = { user: 'Fake', password: '123' }
     this.authService.login(fake);
   }
 
@@ -54,16 +59,10 @@ export class AppComponent {
       route: 'books'
     },
     {
-      id: 'add',
-      label: 'Add Book',
-      icon: 'library_add',
-      route: 'addBook'
-    },
-    {
-      id: 'edit',
-      label: 'Edit Books',
-      icon: 'edit',
-      route: 'edit'
+      id: 'statistic',
+      label: 'Statistic',
+      icon: 'browse_activity',
+      route: 'statistic'
     },
     {
       id: 'settings',
@@ -80,4 +79,15 @@ export class AppComponent {
   ];
 
   public activeLink: string = 'home';
+
+  public addBook() {
+    const dialogRef = this.dialog.open(AddBookComponent);
+
+    dialogRef.afterClosed().subscribe((result: IAddBook) => {
+      if (result) {
+        console.log('The dialog was closed', result);
+        this.bookService.addBook(result);
+      }
+    });
+  }
 }
