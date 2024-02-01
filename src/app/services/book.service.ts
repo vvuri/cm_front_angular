@@ -21,13 +21,14 @@ export class BookService {
   }
 
   public getAll(): Observable<IBook[]> {
-    let headers = new HttpHeaders({
-      ['accept']: 'application/json',
-      ['Authorization']: `Bearer ${this.authService.accessToken}`
-    });
+    // let headers = new HttpHeaders({
+    //   ['accept']: 'application/json',
+    //   ['Authorization']: `Bearer ${this.authService.accessToken}`
+    // });
 
-    return this.httpClient.get<IBook[]>(environment.apiUrl + 'books',
-      { headers: headers });
+    return this.httpClient.get<IBook[]>(environment.apiUrl + 'books');
+    // ,
+    //   { headers: headers });
     // return of(this._books)
   }
 
