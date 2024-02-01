@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUser, IRegUser } from '../interfaces/book';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,8 +10,8 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
 
-  private _isAuthorized: boolean = false;
   private _user: string = '';
+  private _accessToken: string = '';
 
   constructor(
     private router: Router,
@@ -19,7 +19,7 @@ export class AuthService {
   ) { }
 
   public get isAuthorized(): boolean {
-    return this._isAuthorized;
+    return this._accessToken != '';
   }
 
   // public set isAuthorized(): boolean {
@@ -34,13 +34,21 @@ export class AuthService {
 
     console.log('Auth:', authUser);
 
-    return this.httpClient.post(environment.apiUrl + 'auth/login',
+    return this.httpClient.post<any>(environment.apiUrl + 'auth/login',
       JSON.stringify(authUser),
-      { headers: headers });
-
-    // this._isAuthorized = true;
-    // this._user = authUser.email;
-
+      { headers: headers })
+      .pipe(
+        tap({
+          next: result => {
+            this._accessToken = result.accessToken;
+            this.parseUserName();
+            // this._user = authUser.email;
+          }, error: _ => {
+            this._accessToken = '';
+            this._user = '';
+          }
+        })
+      );
   }
 
   public register(newUser: IRegUser): Observable<any> {
@@ -53,8 +61,8 @@ export class AuthService {
   }
 
   public logout(): void {
-    this._isAuthorized = false;
     this._user = '';
+    this._accessToken = '';
     this.router.navigate(['/']);
     location.reload();
   }
@@ -63,4 +71,10 @@ export class AuthService {
     return this._user;
   }
 
+  private parseUserName(): void {
+    let payload = this._accessToken.split(".")[1];
+    let authDataString = atob(payload);
+    let authData = JSON.parse(authDataString);
+    this._user = `${authData.name} (${authData.email})`;
+  }
 }
