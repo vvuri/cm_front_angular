@@ -76,15 +76,6 @@ export class AppComponent {
       if (result) {
         console.log('The dialog  add Book 1', result);
         this.bookService.addBook(result).subscribe();
-        // .subscribe(() => {
-        // this.bookService.getAll();
-        //       this.bookService.getAll().subscribe((result) => {
-
-        //         // this.router.navigate(['statistic']);
-        //         // this.router.navigate(['books']);
-        //         console.log('Reload 2');
-        //       });
-        // });
       }
     });
   }

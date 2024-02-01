@@ -16,7 +16,11 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './book-list.component.scss'
 })
 export class BookListComponent implements OnInit {
-  public books: IBook[] = [];
+  // public books: IBook[] = [];
+
+  public get books(): IBook[] {
+    return this.bookService.books;
+  }
 
   constructor(
     private bookService: BookService,
@@ -24,13 +28,7 @@ export class BookListComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.loadBooks();
+    this.bookService.updateBookList();
   }
 
-  private loadBooks(): void {
-    console.log('loadBooks');
-    this.bookService.getAll().subscribe(books => {
-      this.books = books;
-    });
-  }
 }

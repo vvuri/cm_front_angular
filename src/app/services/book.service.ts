@@ -13,6 +13,10 @@ export class BookService {
   private _books: IBook[] = [];
   private _currentId: number = 3;
 
+  public get books(): IBook[] {
+    return this._books;
+  }
+
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -24,15 +28,18 @@ export class BookService {
     return this.httpClient.get<IBook[]>(environment.apiUrl + 'books');
   }
 
+  public updateBookList(): void {
+    this.getAll().subscribe(books => {
+      this._books = books;
+    });
+  }
+
   public addBook(book: IAddBook): Observable<IBook> {
     return this.httpClient.post<IBook>(environment.apiUrl + 'books', JSON.stringify(book))
       .pipe(
         tap(() => {
-          console.log('Add book 3');
-          this.getAll().subscribe();
-          this.router.navigate(['books']);
-        })
-      );
+          this.updateBookList();
+        }));
   }
 
   public editBook() {
