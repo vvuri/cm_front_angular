@@ -18,14 +18,13 @@ export class AuthService {
     private httpClient: HttpClient,
   ) { }
 
+  public get accessToken(): string {
+    return this._accessToken;
+  }
+
   public get isAuthorized(): boolean {
     return this._accessToken != '';
   }
-
-  // public set isAuthorized(): boolean {
-  //   this._isAuthorized = true;
-  // }
-
   public login(authUser: IUser): Observable<any> {
     let headers = new HttpHeaders({
       ['accept']: 'application/json',
@@ -42,7 +41,6 @@ export class AuthService {
           next: result => {
             this._accessToken = result.accessToken;
             this.parseUserName();
-            // this._user = authUser.email;
           }, error: _ => {
             this._accessToken = '';
             this._user = '';

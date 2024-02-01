@@ -24,15 +24,15 @@ export class AddBookComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AddBookComponent>,
-  ) {}
+  ) { }
 
   public onClose(): void {
     this.dialogRef.close();
-  }  
+  }
 
   public onSave(): void {
     const book: IAddBook = {
-      title: this.bookForm.get('title')?.value ?? '',
+      name: this.bookForm.get('title')?.value ?? '',
       author: this.bookForm.get('author')?.value ?? ''
     }
 

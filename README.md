@@ -2,8 +2,11 @@
 
 Front End course 
 
-## Build
-Run `ng build` -> `dist/`
+## Run
+1. Run Docker container
+2. Change port in environment.development.ts: 'http://localhost:5010/api/' 
+3. $ ng serve
+
 
 ## Steps
 
@@ -131,6 +134,9 @@ Run `ng build` -> `dist/`
     $ ng g environments
     --> apiUrl: 'https://localhost:5010/api/'
 
+30. Внедрение token
+    $ ng g interceptor interceptors/jwt
+    
 
 ## ToDo
 1. Dark тема - Setting переключатель
@@ -146,9 +152,7 @@ Run `ng build` -> `dist/`
 11. Edit book #11 1:09
 12. Request #13 0:53-1:05
 13. Add Env #13 1:09
-16. Починить баг со вторым менюи логаутом
 17. Не работае отоброжение ошибки при пустом логине
-18. Нужна еще регистрация.
 19. Порт у меня 5010
     
 

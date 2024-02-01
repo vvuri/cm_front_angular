@@ -1,11 +1,12 @@
 export interface IBook {
-    id: number,
-    title: string,
+    id: string,
+    userId: string,
+    name: string,
     author: string,
 }
 
 export interface IAddBook {
-    title: string,
+    name: string,
     author: string,
 }
 
@@ -13,7 +14,6 @@ export interface IUser {
     email: string,
     password: string,
 }
-
 
 export interface IRegUser {
     name: string,
