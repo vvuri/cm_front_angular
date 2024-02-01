@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookListComponent } from './book-list/book-list.component';
@@ -39,7 +39,8 @@ export class AppComponent {
   constructor(
     public authService: AuthService,
     private bookService: BookService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
   ) { }
 
   // public login() {
@@ -85,8 +86,16 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
-        console.log('The dialog was closed', result);
-        this.bookService.addBook(result);
+        console.log('The dialog  add Book 1', result);
+        this.bookService.addBook(result)
+          .subscribe(() => {
+            this.bookService.getAll().subscribe((result) => {
+
+              // this.router.navigate(['statistic']);
+              // this.router.navigate(['books']);
+              console.log('Reload 2');
+            });
+          });
       }
     });
   }
