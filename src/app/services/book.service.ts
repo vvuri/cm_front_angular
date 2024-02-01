@@ -3,7 +3,6 @@ import { IAddBook, IBook } from '../interfaces/book';
 import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -16,7 +15,6 @@ export class BookService {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService,
     private router: Router,
   ) {
     this._books = [];
@@ -27,12 +25,22 @@ export class BookService {
   }
 
   public addBook(book: IAddBook): Observable<IBook> {
-    return this.httpClient.post<IBook>(environment.apiUrl + 'books', JSON.stringify(book));
+    return this.httpClient.post<IBook>(environment.apiUrl + 'books', JSON.stringify(book))
+      .pipe(
+        tap(() => {
+          console.log('Add book 3');
+          this.getAll().subscribe();
+          this.router.navigate(['books']);
+        })
+      );
   }
 
   public editBook() {
+    // TODO: Add Edit Form
+  }
 
-
+  public deleteBook() {
+    // TODO: Delete book
   }
 
 }

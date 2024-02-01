@@ -40,13 +40,7 @@ export class AppComponent {
     public authService: AuthService,
     private bookService: BookService,
     private dialog: MatDialog,
-    private router: Router,
   ) { }
-
-  // public login() {
-  //   const fake: IUser = { user: 'Fake', password: '123' }
-  //   this.authService.login(fake);
-  // }
 
   public logout() {
     this.authService.logout();
@@ -71,12 +65,6 @@ export class AppComponent {
       icon: 'settings',
       route: 'settings'
     },
-    // {
-    //   id: 'logout',
-    //   label: 'Sign Out',
-    //   icon: 'logout',
-    //   route: '/'
-    // },
   ];
 
   public activeLink: string = 'home';
@@ -87,15 +75,16 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
         console.log('The dialog  add Book 1', result);
-        this.bookService.addBook(result)
-          .subscribe(() => {
-            this.bookService.getAll().subscribe((result) => {
+        this.bookService.addBook(result).subscribe();
+        // .subscribe(() => {
+        // this.bookService.getAll();
+        //       this.bookService.getAll().subscribe((result) => {
 
-              // this.router.navigate(['statistic']);
-              // this.router.navigate(['books']);
-              console.log('Reload 2');
-            });
-          });
+        //         // this.router.navigate(['statistic']);
+        //         // this.router.navigate(['books']);
+        //         console.log('Reload 2');
+        //       });
+        // });
       }
     });
   }
