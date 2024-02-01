@@ -1,5 +1,4 @@
 # CmFrontAngular
-
 Front End course 
 
 ## Run
@@ -7,8 +6,11 @@ Front End course
 2. Change port in environment.development.ts: 'http://localhost:5010/api/' 
 3. $ ng serve
 
+## Замечания
+1. DELETE и PUT метод закрыт политикой CORS - необходимо на сервере включать.
+2. Port Docker 5010
 
-## Steps
+### Steps
 
 1. $ ng version  
    > Angular CLI: 17.0.10 <br>
@@ -136,23 +138,17 @@ Front End course
 
 30. Внедрение token
     $ ng g interceptor interceptors/jwt
-    
+
 
 ## ToDo
 1. Dark тема - Setting переключатель
-2. Переделать list книг - в название и автор
-3. Доделать Navigation Drawer
-4. Hover для меню
-5. Resize для mobile
-6. Починить кнопку AddBook вызов
-7. Передать значение в компонент Book
-8. Стилизация
-9. Не работает роут на /books
-10. Добавить валидацию #11 1:03
-11. Edit book #11 1:09
-12. Request #13 0:53-1:05
-13. Add Env #13 1:09
-17. Не работае отоброжение ошибки при пустом логине
-19. Порт у меня 5010
+2. Доделать Navigation Drawer
+3. Hover для меню
+4. Resize для mobile
+5. Стилизация
+6. Добавить валидацию #11 1:03
+7. Edit book #11 1:09
+8. Request #13 0:53-1:05
+9. Не работае отоброжение ошибки при пустом логине
     
 

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatListModule } from '@angular/material/list'
 import { BookListComponent } from './book-list/book-list.component';
 import { AuthService } from './auth/auth.service';
-import { IAddBook, IUser } from './interfaces/book';
+import { IAddBook } from './interfaces/book';
 import { AddBookComponent } from './dialods/add-book/add-book.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BookService } from './services/book.service';

@@ -42,12 +42,25 @@ export class BookService {
         }));
   }
 
-  public editBook() {
-    // TODO: Add Edit Form
+  public editBook(id: string, book: IAddBook) {
+    console.log('Update: ' + environment.apiUrl + 'books/' + id + ' - ', book);
+    return this.httpClient.put<any>(environment.apiUrl + 'books/' + id, JSON.stringify(book))
+      .pipe(
+        tap((result) => {
+          console.log('R: ', result);
+          this.updateBookList();
+        }));
   }
 
-  public deleteBook() {
-    // TODO: Delete book
+  public deleteBook(id: string): Observable<any> {
+    console.log('Delete: ' + environment.apiUrl + 'books/' + id);
+    return this.httpClient.delete(environment.apiUrl + 'books/' + id)
+      .pipe(
+        tap((result) => {
+          console.log('R: ', result);
+          this.updateBookList();
+        }));
   }
+
 
 }
