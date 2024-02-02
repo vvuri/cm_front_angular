@@ -74,8 +74,18 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
-        console.log('The dialog  add Book 1', result);
         this.bookService.addBook(result).subscribe();
+      }
+    });
+  }
+
+  public editBook(id: string) {
+    const dialogRef = this.dialog.open(AddBookComponent);
+
+    dialogRef.afterClosed().subscribe((result: IAddBook) => {
+      if (result) {
+        console.log('The dialog  add Book Edit', result);
+        this.bookService.editBook(id, result).subscribe();
       }
     });
   }

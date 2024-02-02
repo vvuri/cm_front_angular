@@ -46,8 +46,7 @@ export class BookService {
     console.log('Update: ' + environment.apiUrl + 'books/' + id + ' - ', book);
     return this.httpClient.put<any>(environment.apiUrl + 'books/' + id, JSON.stringify(book))
       .pipe(
-        tap((result) => {
-          console.log('R: ', result);
+        tap(() => {
           this.updateBookList();
         }));
   }
@@ -56,8 +55,7 @@ export class BookService {
     console.log('Delete: ' + environment.apiUrl + 'books/' + id);
     return this.httpClient.delete(environment.apiUrl + 'books/' + id)
       .pipe(
-        tap((result) => {
-          console.log('R: ', result);
+        tap(() => {
           this.updateBookList();
         }));
   }

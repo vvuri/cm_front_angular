@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { IAddBook, IBook } from '../interfaces/book';
+import { IBook } from '../interfaces/book';
 import { CommonModule } from '@angular/common';
 import { BookPipe } from '../pipes/book.pipe';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BookService } from '../services/book.service';
-import { AddBookComponent } from '../dialods/add-book/add-book.component';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'cm-book',
@@ -26,23 +26,16 @@ export class BookComponent {
 
   constructor(
     private bookService: BookService,
+    private app: AppComponent,
   ) { }
 
   public onEdit(id: string): void {
-    console.log(id);
-
-    const dialogRef = this.dialog.open(AddBookComponent);
-
-    dialogRef.afterClosed().subscribe((result: IAddBook) => {
-      if (result) {
-        console.log('The dialog  add Book 1', result);
-        this.bookService.editBook(id, result).subscribe();
-      }
-    });
+    console.log('Edit: ', id);
+    this.app.editBook(id);
   }
 
   public onDelete(id: string): void {
-    console.log(id);
+    console.log('Delete: ', id);
     this.bookService.deleteBook(id).subscribe();
   }
 
