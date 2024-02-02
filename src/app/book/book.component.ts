@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IBook } from '../interfaces/book';
+import { IAddBook, IBook } from '../interfaces/book';
 import { CommonModule } from '@angular/common';
 import { BookPipe } from '../pipes/book.pipe';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,9 +29,9 @@ export class BookComponent {
     private app: AppComponent,
   ) { }
 
-  public onEdit(id: string): void {
+  public onEdit(id: string, book: IAddBook): void {
     console.log('Edit: ', id);
-    this.app.editBook(id);
+    this.app.editBook(id, book);
   }
 
   public onDelete(id: string): void {

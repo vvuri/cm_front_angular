@@ -2,7 +2,7 @@
     <span class="card__title">{{ book.name }}</span>
     <span class="card__author">{{ book | book }}</span>
     <div class="edit">
-        <button mat-button (click)="onEdit(book.id)">Edit</button>
+        <button mat-button (click)="onEdit(book.id, book)">Edit</button>
         <button mat-button (click)="onDelete(book.id)">Delete</button>
     </div>
 </div>

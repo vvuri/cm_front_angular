@@ -60,5 +60,9 @@ export class BookService {
         }));
   }
 
+  public getOneBook(id: string): Observable<IBook> {
+    console.log('Get Book: ' + environment.apiUrl + 'books/' + id);
+    return this.httpClient.get<IBook>(environment.apiUrl + 'books/' + id);
+  }
 
 }

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { IAddBook } from '../../interfaces/book';
+import { IAddBook, IBook } from '../../interfaces/book';
 
 @Component({
   selector: 'cm-edit-book',
@@ -16,7 +16,7 @@ import { IAddBook } from '../../interfaces/book';
   templateUrl: './edit-book.component.html',
   styleUrl: './edit-book.component.scss'
 })
-export class EditBookComponent {
+export class EditBookComponent implements OnInit {
   public bookForm = new FormGroup({
     title: new FormControl<string>(''),
     author: new FormControl<string>(''),
@@ -24,7 +24,15 @@ export class EditBookComponent {
 
   constructor(
     public dialogRef: MatDialogRef<EditBookComponent>,
+    @Inject(MAT_DIALOG_DATA) private data?: IAddBook
   ) { }
+
+  public ngOnInit(): void {
+    if (this.data) {
+      this.bookForm.get('title')?.setValue(this.data.name);
+      this.bookForm.get('author')?.setValue(this.data.author);
+    }
+  }
 
   public onClose(): void {
     this.dialogRef.close();

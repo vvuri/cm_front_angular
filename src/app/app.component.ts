@@ -80,8 +80,8 @@ export class AppComponent {
     });
   }
 
-  public editBook(id: string) {
-    const dialogRef = this.dialog.open(EditBookComponent);
+  public editBook(id: string, book: IAddBook) {
+    const dialogRef = this.dialog.open(EditBookComponent, { data: book });
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
