@@ -5,10 +5,12 @@ Front End course
 1. Run Docker container
 2. Change port in environment.development.ts: 'http://localhost:5010/api/' 
 3. $ ng serve
+4. Browser open url: http://localhost:4200/
 
 ## Замечания
-1. DELETE и PUT метод закрыт политикой CORS - необходимо на сервере включать.
-2. Port Docker 5010
+1. Port Docker 5010
+2. App: http://localhost:4200/
+
 
 ### Steps
 

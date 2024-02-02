@@ -43,7 +43,7 @@ export class BookComponent {
 
   public onDelete(id: string): void {
     console.log(id);
-    this.bookService.deleteBook(id);
+    this.bookService.deleteBook(id).subscribe();
   }
 
 }

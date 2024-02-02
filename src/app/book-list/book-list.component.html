@@ -1,8 +1,11 @@
-<p>book-list works!</p>
+<h2>Book list</h2>
+
+<div class="card">
+    <span class="card__title">Full Book Title</span>
+    <span class="card__author">Authors</span>
+    <span></span>
+</div>
 
 @for (book of books; track book) {
 <cm-book [book]="book"></cm-book>
 }
-
-<!-- <button mat-raised-button color="primary" (click)="addBook()">Add Book</button> -->
-<!-- <button mat-raised-button color="primary">Add Book</button>  -->

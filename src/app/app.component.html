@@ -2,21 +2,27 @@
    <nav class="navigation" *ngIf="authService.isAuthorized; else loggedOut">
       <mat-nav-list>
          <a mat-list-item (click)="addBook()">
-            <span class="navigation__item__icon">library_add</span>
-            <span class="navigation__item__text">Add Book</span>
+            <div class="navigation__item">
+               <span class="navigation__item__icon">library_add</span>
+               <span class="navigation__item__text">Add Book</span>
+            </div>
          </a>
 
          @for (link of navList; track link) {
          <a mat-list-item [activated]="link.id === activeLink" (click)="activeLink = link.id"
             routerLink="{{ link.route }}">
-            <span class="navigation__item__icon">{{ link.icon }}</span>
-            <span class="navigation__item__text">{{ link.label }}</span>
+            <div class="navigation__item">
+               <span class="navigation__item__icon">{{ link.icon }}</span>
+               <span class="navigation__item__text">{{ link.label }}</span>
+            </div>
          </a>
          }
 
          <a mat-list-item (click)="logout()">
-            <span class="navigation__item__icon">logout</span>
-            <span class="navigation__item__text">Sign Out</span>
+            <div class="navigation__item">
+               <span class="navigation__item__icon">logout</span>
+               <span class="navigation__item__text">Sign Out</span>
+            </div>
          </a>
       </mat-nav-list>
    </nav>
@@ -25,12 +31,16 @@
       <nav class="navigation">
          <mat-nav-list>
             <a mat-list-item routerLink="login" routerLinkActive="active">
-               <span class="navigation__item__icon">login</span>
-               <span class="navigation__item__text">Login</span>
+               <div class="navigation__item">
+                  <span class="navigation__item__icon">login</span>
+                  <span class="navigation__item__text">Login</span>
+               </div>
             </a>
             <a mat-list-item routerLink="register" routerLinkActive="active">
-               <span class="navigation__item__icon">person_add</span>
-               <span class="navigation__item__text">Register</span>
+               <div class="navigation__item">
+                  <span class="navigation__item__icon">person_add</span>
+                  <span class="navigation__item__text">Register</span>
+               </div>
             </a>
          </mat-nav-list>
       </nav>
