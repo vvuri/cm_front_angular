@@ -141,6 +141,8 @@ Front End course
 30. Внедрение token
     $ ng g interceptor interceptors/jwt
 
+31. Edit book
+    $ ng g component dialods/edit-book
 
 ## ToDo
 1. Dark тема - Setting переключатель
@@ -149,8 +151,6 @@ Front End course
 4. Resize для mobile
 5. Стилизация
 6. Добавить валидацию #11 1:03
-7. Edit book #11 1:09
-8. Request #13 0:53-1:05
-9. Не работае отоброжение ошибки при пустом логине
+7. Не работае отоброжение ошибки при пустом логине
     
 

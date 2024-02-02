@@ -9,6 +9,7 @@ import { IAddBook } from './interfaces/book';
 import { AddBookComponent } from './dialods/add-book/add-book.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BookService } from './services/book.service';
+import { EditBookComponent } from './dialods/edit-book/edit-book.component';
 
 interface INavigatinItem {
   id: string,
@@ -80,11 +81,11 @@ export class AppComponent {
   }
 
   public editBook(id: string) {
-    const dialogRef = this.dialog.open(AddBookComponent);
+    const dialogRef = this.dialog.open(EditBookComponent);
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
-        console.log('The dialog  add Book Edit', result);
+        // console.log('The dialog  add Book Edit', result);
         this.bookService.editBook(id, result).subscribe();
       }
     });

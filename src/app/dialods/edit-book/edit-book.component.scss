@@ -1,0 +1,19 @@
+h2 {
+    padding-left: 20px;
+    padding-block: 10px;
+    text-align: left;
+}
+
+.inputform {
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr;
+    padding-inline: 10px;
+}
+
+.reg {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    padding-inline: 10px;
+    margin-bottom: 10px;
+}
