@@ -65,4 +65,19 @@ export class BookService {
     return this.httpClient.get<IBook>(environment.apiUrl + 'books/' + id);
   }
 
+
+  public deleteAllBooks(): Observable<any> {
+    console.log('Delete All Books: ' + environment.apiUrl + 'book');
+    return this.httpClient.delete(environment.apiUrl + 'books')
+  }
+
+  public generateBooks(count: number): Observable<IBook> {
+    console.log(`Generate: ${count} books`);
+    return this.httpClient.post<IBook>(environment.apiUrl + 'books/generate/' + count.toString(), {})
+      .pipe(
+        tap((books) => {
+          this.updateBookList();
+        }));
+  }
+
 }
