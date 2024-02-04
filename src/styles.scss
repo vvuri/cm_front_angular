@@ -38,7 +38,7 @@ $cm_front_angular-theme: mat.define-light-theme((color: (primary: $cm_front_angu
 
 /* You can add global styles to this file, and also import other style files */
 
-$breakpoint-laptop: 840px;
+$breakpoint-laptop: 925px;
 $braekpoint-mobile: 360px;
 
 html,
@@ -57,20 +57,27 @@ body {
 }
 
 .container {
+  --_menu-width: var(--menu-width, 250px);
   background: lightgrey;
 
   height: 100%;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: var(--_menu-width) 1fr;
   grid-template-rows: min-content 1fr min-content;
   grid-template-areas: "nav header" "nav main" "nav footer";
+
+  @media(max-width: $breakpoint-laptop) {
+    --menu-width: 130px;
+  }
 }
 
 .navigation {
   --_nav-orientation: var(--nav-orientation, column);
   --_item-gap: var(--item-gap, 10px);
   --_line-heigh: var(--line-height, 40px);
+  --mdc-list-list-item-one-line-container-height: 48px;
+
 
   background: var(--md-sys-color-surface);
   padding-top: 10px;
@@ -86,11 +93,13 @@ body {
     --item-gap: 1px;
     --line-height: 32px;
     align-items: center;
+    --mdc-list-list-item-one-line-container-height: 64px;
   }
 
   @media(max-width: $breakpoint-laptop) {
     --item-gap: 1px;
     --line-height: 32px;
+    --mdc-list-list-item-one-line-container-height: 80px;
   }
 
   &__item {
@@ -103,6 +112,25 @@ body {
     flex-direction: row;
     gap: var(--_item-gap); //10px;
     padding-left: var(--_item-padding-left);
+
+    @media(max-width: $breakpoint-laptop) {
+      --item-padding-left: 1px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    @media(max-width: $braekpoint-mobile) {
+      flex-direction: column;
+      --is-item-hidden: none;
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: var(--md-sys-color-on-surface);
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--md-sys-color-on-secondary-container);
+    }
 
     &__icon {
       font-family: "Material Symbols Outlined";
@@ -123,6 +151,13 @@ body {
       line-height: var(--_line-height);
       color: var(--md-sys-color-on-surface-variant);
     }
-  }
 
+    &--selected {
+      --selected: 1;
+      --selected-wght: 600;
+      color: var(--md-sys-color-on-secondary-container);
+      background-color: var(--md-sys-color-on-variant);
+      border-radius: 20px;
+    }
+  }
 }
