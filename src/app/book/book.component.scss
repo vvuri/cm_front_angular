@@ -27,3 +27,9 @@
     background-image: url('../../assets/images/author.jpg');
     background-size: cover;
 }
+
+.mat-mdc-card-content {
+    padding-top: 10px;
+    height: 80px;
+    overflow: hidden;
+}

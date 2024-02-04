@@ -1,4 +1,9 @@
 <div class="container">
+   <header class="header" *ngIf="authService.isAuthorized">
+      Course Frontend 2024
+      <div>Current user: {{ authService.userName }} </div>
+   </header>
+
    <nav class="navigation" *ngIf="authService.isAuthorized; else loggedOut">
       <mat-nav-list>
          <a mat-list-item (click)="addBook()">
@@ -46,18 +51,9 @@
       </nav>
    </ng-template>
 
-   <header class="header" *ngIf="authService.isAuthorized">
-      <!-- <button mat-flat-button color="primary" (click)="login()">Login</button> -->
-      <!-- <button mat-flat-button color="primary" (click)="logout()">Logout</button> -->
-      <div>Current user: {{ authService.userName }} </div>
-   </header>
-
    <main class="main">
       <router-outlet></router-outlet>
       <!-- <cm-book-list></cm-book-list> -->
    </main>
 
-   <footer class="footer">
-      Course Frontend, vvuri, Tula 2024
-   </footer>
 </div>
