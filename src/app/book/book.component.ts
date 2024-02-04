@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BookService } from '../services/book.service';
 import { AppComponent } from '../app.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'cm-book',
@@ -14,7 +16,9 @@ import { AppComponent } from '../app.component';
     CommonModule,
     BookPipe,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'

@@ -1,8 +1,17 @@
 <div *ngIf="book" class="card">
-    <span class="card__title">{{ book.name }}</span>
-    <span class="card__author">{{ book | book }}</span>
-    <div class="edit">
-        <button mat-button (click)="onEdit(book.id, book)">Edit</button>
-        <button mat-button (click)="onDelete(book.id)">Delete</button>
-    </div>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ book.author }}</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        <img mat-card-image src="assets/images/book.jpg" alt="Book of {{book.author}}">
+        <mat-card-content>
+            {{ book.name }}
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="onEdit(book.id, book)">Edit</button>
+            <button mat-button (click)="onDelete(book.id)" color="warn">Delete</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
