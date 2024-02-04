@@ -54,6 +54,10 @@
    <main class="main">
       <router-outlet></router-outlet>
       <!-- <cm-book-list></cm-book-list> -->
+      <div class="stretchable-container" *ngIf="!authService.isAuthorized">
+         <img class="stretchable-image" src="../assets/images/coffee.svg" alt="Coffee Image">
+      </div>
+
    </main>
 
 </div>
