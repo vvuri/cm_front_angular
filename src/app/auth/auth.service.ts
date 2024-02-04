@@ -73,6 +73,6 @@ export class AuthService {
     let payload = this._accessToken.split(".")[1];
     let authDataString = atob(payload);
     let authData = JSON.parse(authDataString);
-    this._user = `${authData.name} (${authData.email})`;
+    this._user = `${authData.name}`;
   }
 }

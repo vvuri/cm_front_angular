@@ -1,7 +1,10 @@
 <div class="container">
    <header class="header" *ngIf="authService.isAuthorized">
-      Course Frontend 2024
-      <div>Current user: {{ authService.userName }} </div>
+      <mat-toolbar>
+         <span>Course Frontend 2024&nbsp;&nbsp;-&nbsp;</span>
+         <span class="material-symbols-outlined header--logo">person</span>
+         <span>{{ authService.userName }}</span>
+      </mat-toolbar>
    </header>
 
    <nav class="navigation" *ngIf="authService.isAuthorized; else loggedOut">

@@ -10,6 +10,8 @@ import { AddBookComponent } from './dialods/add-book/add-book.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BookService } from './services/book.service';
 import { EditBookComponent } from './dialods/edit-book/edit-book.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 interface INavigatinItem {
   id: string,
@@ -29,6 +31,8 @@ interface INavigatinItem {
     MatButtonModule,
     MatListModule,
     BookListComponent,
+    MatToolbarModule,
+    MatIconModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
