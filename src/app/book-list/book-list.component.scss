@@ -7,9 +7,14 @@ h2 {
 .card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 12px;
+
+    // justify-content: space-between;
+    padding-inline: 20px;
+    // align-items: flex-start;
+    justify-content: space-around;
+    // margin: 0 10px;
     align-items: flex-start;
+
     gap: 20px;
     background-color: var(--md-sys-color-surface-variant); //--md-sys-color-surface-container); //azure;
 }
