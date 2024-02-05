@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
@@ -38,7 +38,7 @@ interface INavigatinItem {
   styleUrl: './app.component.scss'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'cm_front_angular';
 
   constructor(
@@ -46,6 +46,10 @@ export class AppComponent {
     private bookService: BookService,
     private dialog: MatDialog,
   ) { }
+
+  ngOnInit() {
+    this.authService.reinit();
+  }
 
   public logout() {
     this.authService.logout();

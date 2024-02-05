@@ -25,6 +25,7 @@ export class AuthService {
   public get isAuthorized(): boolean {
     return this._accessToken != '';
   }
+
   public login(authUser: IUser): Observable<any> {
     let headers = new HttpHeaders({
       ['accept']: 'application/json',
@@ -40,9 +41,11 @@ export class AuthService {
         tap({
           next: result => {
             this._accessToken = result.accessToken;
+            localStorage.setItem('token', this._accessToken);
             this.parseUserName();
           }, error: _ => {
             this._accessToken = '';
+            localStorage.setItem('token', '');
             this._user = '';
           }
         })
@@ -61,6 +64,7 @@ export class AuthService {
   public logout(): void {
     this._user = '';
     this._accessToken = '';
+    localStorage.setItem('token', '');
     this.router.navigate(['/']);
     location.reload();
   }
@@ -74,5 +78,15 @@ export class AuthService {
     let authDataString = atob(payload);
     let authData = JSON.parse(authDataString);
     this._user = `${authData.name}`;
+  }
+
+  public reinit(): void {
+    if (this._accessToken == '') {
+      const tmp = localStorage.getItem('token');
+      if (tmp != null && tmp != '') {
+        this._accessToken = tmp;
+      }
+    }
+    localStorage.getItem('token')
   }
 }
