@@ -4,15 +4,29 @@ h2 {
     text-align: left;
 }
 
+$breakpoint-laptop: 925px;
+
 .daraform {
+    --_field-size: var(--fild-size, 0.5fr);
+
     display: grid;
-    grid-template-columns: 0.5fr;
-    padding-left: 10px;
+    grid-template-columns: var(--_field-size);
+    padding-inline: 10px;
+
+    @media(max-width: $breakpoint-laptop) {
+        --fild-size: 1fr;
+    }
 }
 
 .reg {
+    --_field-size: var(--fild-size, 0.5fr);
+
     display: grid;
-    grid-template-columns: 0.5fr;
+    grid-template-columns: var(--_field-size);
     align-self: end;
-    padding-left: 10px;
+    padding-inline: 10px;
+
+    @media(max-width: $breakpoint-laptop) {
+        --fild-size: 1fr;
+    }
 }
