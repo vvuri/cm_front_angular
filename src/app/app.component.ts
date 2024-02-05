@@ -75,7 +75,8 @@ export class AppComponent {
   public activeLink: string = 'home';
 
   public addBook() {
-    const dialogRef = this.dialog.open(AddBookComponent);
+    const dialogRef = this.dialog.open(AddBookComponent,
+      { width: '500px', maxWidth: '100%', panelClass: 'custom-dialog-class' });
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {

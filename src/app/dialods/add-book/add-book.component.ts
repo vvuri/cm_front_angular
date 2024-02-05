@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { IAddBook } from '../../interfaces/book';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'cm-add-book',
@@ -11,7 +12,8 @@ import { IAddBook } from '../../interfaces/book';
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
   ],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.scss'

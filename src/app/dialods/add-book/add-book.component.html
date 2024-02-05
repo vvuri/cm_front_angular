@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add new book</h2>
+<h2 mat-dialog-title>ADD NEW BOOK</h2>
 <div mat-dialog-content>
     <form [formGroup]="bookForm">
         <div class="inputform">
@@ -15,6 +15,6 @@
     </form>
 </div>
 <div mat-dialog-actions class="reg">
-    <button mat-button (click)="onSave()">Save</button>
-    <button mat-button (click)="onClose()">Cancel</button>
+    <button mat-flat-button (click)="onSave()" color="primary">Save</button>
+    <button mat-flat-button (click)="onClose()">Cancel</button>
 </div>
