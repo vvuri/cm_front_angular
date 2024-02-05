@@ -11,5 +11,5 @@ h2 {
     padding: 12px;
     align-items: flex-start;
     gap: 20px;
-    background-color: azure;
+    background-color: var(--md-sys-color-surface-variant); //--md-sys-color-surface-container); //azure;
 }
