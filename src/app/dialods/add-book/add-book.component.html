@@ -4,12 +4,13 @@
         <div class="inputform">
             <mat-form-field>
                 <mat-label>Author</mat-label>
-                <input matInput formControlName="author">
+                <input matInput formControlName="author" placeholder="Введите ФИО автора">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Title</mat-label>
-                <input matInput formControlName="title">
+                <textarea matInput formControlName="title" rows="4"
+                    placeholder="Введите название и описание книги"></textarea>
             </mat-form-field>
         </div>
     </form>

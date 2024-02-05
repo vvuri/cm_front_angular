@@ -76,7 +76,7 @@ export class AppComponent {
 
   public addBook() {
     const dialogRef = this.dialog.open(AddBookComponent,
-      { width: '500px', maxWidth: '100%', panelClass: 'custom-dialog-class' });
+      { width: '500px', maxWidth: '100%' });
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
@@ -86,7 +86,8 @@ export class AppComponent {
   }
 
   public editBook(id: string, book: IAddBook) {
-    const dialogRef = this.dialog.open(EditBookComponent, { data: book });
+    const dialogRef = this.dialog.open(EditBookComponent,
+      { data: book, width: '500px', maxWidth: '100%' });
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
