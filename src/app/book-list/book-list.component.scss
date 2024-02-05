@@ -4,17 +4,28 @@ h2 {
     text-align: left;
 }
 
+$braekpoint-mobile: 700px;
+
 .card {
-    display: flex;
+    --_align-items: var(--align-items, flex-start);
+    --_padding: var(--padding, 20px);
+    --_justify-content: var(--justify-content, space-around);
+    --_display: var(--display, flex);
+
+    display: var(--_display);
     flex-wrap: wrap;
 
-    // justify-content: space-between;
-    padding-inline: 20px;
-    // align-items: flex-start;
-    justify-content: space-around;
-    // margin: 0 10px;
-    align-items: flex-start;
+    padding-inline: var(--_padding);
+    justify-content: var(--_justify-content);
+    align-items: var(--_align-items);
 
-    gap: 20px;
+    gap: var(--_padding);
     background-color: var(--md-sys-color-surface-variant); //--md-sys-color-surface-container); //azure;
+
+    @media(max-width: $braekpoint-mobile) {
+        --align-items: flex-start;
+        --padding: 10px;
+        --justify-content: flex-start;
+        --display: grid;
+    }
 }

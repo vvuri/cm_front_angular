@@ -18,9 +18,16 @@
 //         line-height: 20pt;
 //     }
 // }
+$braekpoint-mobile: 700px;
 
 .example-card {
-    max-width: 300px;
+    --_max-width: var(--max-width, 300px);
+
+    max-width: var(--_max-width);
+
+    @media(max-width: $braekpoint-mobile) {
+        --max-width: 700px;
+    }
 }
 
 .example-header-image {
@@ -36,4 +43,14 @@
 
 .mat-mdc-card {
     background: var(--md-sys-color-surface-container);
+}
+
+@media(max-width: $braekpoint-mobile) {
+    img {
+        display: none;
+    }
+
+    mat-card-actions {
+        display: none;
+    }
 }
