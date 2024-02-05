@@ -1,14 +1,11 @@
-<div *ngIf="book==''">
+<div *ngIf="books && books.length == 0; else showList">
     <h2>Book list is empty</h2>
 </div>
 
-<!-- <div class="card">
-    <span class="card__title">Full Book Title</span>
-    <span class="card__author">Authors</span>
-    <span></span>
-</div> -->
-<div class="card">
-    @for (book of books; track book) {
-    <cm-book [book]="book"></cm-book>
-    }
-</div>
+<ng-template #showList>
+    <div class="card">
+        @for (book of books; track book) {
+        <cm-book [book]="book"></cm-book>
+        }
+    </div>
+</ng-template>

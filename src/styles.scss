@@ -126,7 +126,7 @@ body {
     }
 
     &:hover {
-      background-color: var(--md-sys-color-on-surface);
+      background-color: var(--md-sys-color-inverse-primary);
       border-radius: 20px;
       cursor: pointer;
       color: var(--md-sys-color-on-secondary-container);
@@ -156,8 +156,20 @@ body {
       --selected: 1;
       --selected-wght: 600;
       color: var(--md-sys-color-on-secondary-container);
-      background-color: var(--md-sys-color-on-variant);
+      background-color: var(--md-sys-color-on-variant); //--md-sys-color-tertiary-fixed
       border-radius: 20px;
+      --mdc-list-list-item-container-color: --md-sys-color-tertiary-fixed;
+
     }
   }
+}
+
+.mdc-list-item--with-one-line {
+  border-radius: 20px;
+  --mdc-list-list-item-container-shape: 20px;
+}
+
+.mdc-list-item:hover {
+  background-color: var(--md-sys-color-inverse-primary);
+
 }

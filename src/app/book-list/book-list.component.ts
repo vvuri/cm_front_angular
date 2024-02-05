@@ -4,11 +4,13 @@ import { BookService } from '../services/book.service';
 import { BookComponent } from '../book/book.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'cm-book-list',
   standalone: true,
   imports: [
+    CommonModule,
     MatButtonModule,
     BookComponent
   ],
