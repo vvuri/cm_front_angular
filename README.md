@@ -13,7 +13,6 @@ Front End course
 
 
 ### Steps
-
 1. $ ng version  
    > Angular CLI: 17.0.10 <br>
    Node: 20.10.0 <br>
@@ -143,14 +142,5 @@ Front End course
 
 31. Edit book
     $ ng g component dialods/edit-book
-
-## ToDo
-1. Dark тема - Setting переключатель
-2. Доделать Navigation Drawer
-3. Hover для меню
-4. Resize для mobile
-5. Стилизация
-6. Добавить валидацию #11 1:03
-7. Не работае отоброжение ошибки при пустом логине
-    
+  
 

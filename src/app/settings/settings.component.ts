@@ -35,7 +35,6 @@ export class SettingsComponent {
   ) { }
 
   public onGenerate(): void {
-    // console.log(`Generate: ${this.sliderValue} books`);
     this.bookService.generateBooks(this.sliderValue).subscribe();
   }
 

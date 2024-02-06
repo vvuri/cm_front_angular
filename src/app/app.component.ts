@@ -95,7 +95,6 @@ export class AppComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: IAddBook) => {
       if (result) {
-        // console.log('The dialog  add Book Edit', result);
         this.bookService.editBook(id, result).subscribe();
       }
     });

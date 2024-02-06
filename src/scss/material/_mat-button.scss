@@ -1,8 +1,6 @@
 @use '../mixins/typography';
 
 .mat-mdc-raised-button.mat-mdc-raised-button.mat-mdc-raised-button {
-    // --mdc-protected-button-container-color: green;
-    // --mdc-protected-button-label-text-size: 20px;
     --mdc-protected-button-container-shape: 12px;
     --mdc-protected-button-container-height: 60px;
     padding-inline: 100px;
